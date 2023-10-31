@@ -27,7 +27,7 @@ class BestBooks extends React.Component {
     };
 
     componentDidMount() {
-      this.getBooks;
+      this.getBooks();
     }
 
 
