@@ -1,11 +1,19 @@
 import React from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-class Profile extends React.Component {
+
+class About extends React.Component {
 
   render() {
     /* TODO: render information about the developers */
-    return <p>Profile page coming soon</p>
+    return <>
+    <p
+    >Developed by Luke McCarthy, Emma Johnson-Barth, and Ava Melchior.</p>
+    <a href="https://github.com/CRUD-app-with-MongoDB" className="link-primary">Github</a>
+    
+    </>
   }
 }
 
-export default Profile;
+
+export default About;
