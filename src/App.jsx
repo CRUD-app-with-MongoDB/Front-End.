@@ -18,13 +18,13 @@ class App extends React.Component {
           <Header />
           <Routes>
             <Route 
-              exact path="/"
+              path="/"
               element={<BestBooks />}
             >
             </Route>
             {/* PLACEHOLDER: add a route with a path of '/about' that renders the `About` component */}
             <Route
-              exact path="/about"
+              path="/About"
               element={<About />}
             
             ></Route>
