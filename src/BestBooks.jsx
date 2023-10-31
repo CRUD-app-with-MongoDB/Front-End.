@@ -2,6 +2,7 @@ import React from 'react';
 import axios from "axios";
 
 let VITE_APP_SERVER = import.meta.env.VITE_APP_SERVER;
+console.log('server...',VITE_APP_SERVER);
 
 class BestBooks extends React.Component {
   constructor(props) {
@@ -24,6 +25,12 @@ class BestBooks extends React.Component {
         console.log("we have an error: ", error.response.data);
       }
     };
+
+    componentDidMount() {
+      this.getBooks;
+    }
+
+
 
   render() {
 
