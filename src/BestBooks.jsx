@@ -2,6 +2,7 @@ import React from 'react';
 import axios from "axios";
 
 let VITE_APP_SERVER = import.meta.env.VITE_APP_SERVER;
+console.log('server...',VITE_APP_SERVER);
 
 class BestBooks extends React.Component {
   constructor(props) {
@@ -25,6 +26,12 @@ class BestBooks extends React.Component {
       }
     };
 
+    componentDidMount() {
+      this.getBooks();
+    }
+
+
+
   render() {
 
     /* TODO: render all the books in a Carousel */
@@ -39,7 +46,7 @@ class BestBooks extends React.Component {
         <h1>My Essential Lifelong Learning &amp; Formation Shelf</h1>
 
         {this.state.books.length ? (
-          <p>Book Carousel coming soon</p>
+          <p>Book Carousel coming soon {books}</p>
         ) : (
           <h3>No Books Found :(</h3>
         )}
