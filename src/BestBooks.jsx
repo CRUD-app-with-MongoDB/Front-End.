@@ -2,7 +2,9 @@ import React from 'react';
 import axios from "axios";
 import { Carousel } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
-// import { buildErrorMessage } from 'vite';
+
+
+
 
 let VITE_APP_SERVER = import.meta.env.VITE_APP_SERVER;
 // console.log('server...', VITE_APP_SERVER);
