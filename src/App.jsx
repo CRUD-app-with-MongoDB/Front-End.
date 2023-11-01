@@ -63,14 +63,38 @@ class App extends React.Component {
     try {
       let url = `${VITE_APP_SERVER}/books/${id}`;
       await axios.delete(url);
-      let updatedBooks = this.state.books.filter(book => book._id != id);
+      let updateBooks = this.state.books.filter(book => book._id != id);
       this.setState({
-        books: updatedBooks,
+        books: updateBooks,
       });
     } catch (error) {
       console.log('Error: ', error.response.data);
     }
   }
+
+  updateBooks = async (bookToUpdate) => {
+    // console.log("onclick gives up", bookToUpdate);
+    try {
+      let url = `${VITE_APP_SERVER}/books/${bookToUpdate._id}`;
+      console.log(url)
+      
+      let updateBook = await axios.put(url, bookToUpdate);
+
+      console.log(updateBook);
+
+      let updateBookArray = this.state.books.map((exsistingBook) => {
+        return exsistingBook._id === bookToUpdate._id
+          ? updateBook.data
+          : exsistingBook
+      });
+      
+      this.setState({
+        books: updateBookArray,
+      });
+    } catch (error) {
+      console.error("we have an ERrrror", error);
+    }
+  };
 
   componentDidMount() {
     this.getBooks();
@@ -88,7 +112,11 @@ class App extends React.Component {
             {
               this.state.books.length > 0 &&
               <>
-              <Books books={this.state.books} deleteBooks={this.deleteBooks} />
+              <Books 
+              books={this.state.books} 
+              deleteBooks={this.deleteBooks} 
+              updateBooks={this.updateBooks}
+              />
               </>
             }
           </main>
